@@ -1,0 +1,1191 @@
+/* GestionUsuarios.module.css — Estética Gubernamental Argentina */
+
+/* ========== CONTENIDO PRINCIPAL ========== */
+.mainContent {
+    padding: 2rem;
+    overflow-y: auto;
+    background-color: #F0F2F5;
+    min-height: 100vh;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* ========== HEADER ========== */
+.contentHeader {
+    margin-bottom: 2rem;
+    border-bottom: 4px solid #003DA5;
+    padding-bottom: 1.25rem;
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.titleSection {
+    flex: 1;
+}
+
+.pageTitle {
+    font-size: 1.85rem;
+    color: #003DA5;
+    font-weight: 700;
+    margin: 0 0 0.35rem 0;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.breadcrumb {
+    color: #5C6773;
+    font-size: 0.85rem;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.03em;
+}
+
+.headerActions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* ========== BOTONES ========== */
+.btnSecondary {
+    background: #FFFFFF;
+    color: #003DA5;
+    padding: 0.7rem 1.4rem;
+    border: 2px solid #003DA5;
+    border-radius: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.btnSecondary:hover {
+    background: #003DA5;
+    color: #FFFFFF;
+}
+
+.btnPrimary {
+    background: #003DA5;
+    color: #FFFFFF;
+    padding: 0.7rem 1.4rem;
+    border: 2px solid #003DA5;
+    border-radius: 2px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.btnPrimary:hover {
+    background: #002A7A;
+    border-color: #002A7A;
+}
+
+/* ========== STATS GRID ========== */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.statCard {
+    background: #FFFFFF;
+    padding: 1.5rem;
+    border-radius: 0;
+    border: 1px solid #CBD2DA;
+    border-left: 5px solid #003DA5;
+    transition: box-shadow 0.2s ease;
+}
+
+.statCard:hover {
+    box-shadow: 0 4px 16px rgba(0, 61, 165, 0.12);
+}
+
+.statTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.statLabel {
+    font-size: 0.8rem;
+    color: #5C6773;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Arial', sans-serif;
+}
+
+.statIcon {
+    font-size: 1.4rem;
+    opacity: 0.7;
+}
+
+.statValue {
+    font-size: 2.2rem;
+    color: #003DA5;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    font-family: 'Georgia', serif;
+}
+
+.statBottom {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.statChange {
+    color: #1A7A2E;
+    font-weight: 600;
+}
+
+.statPeriod {
+    color: #5C6773;
+}
+
+/* ========== BARRA BÚSQUEDA Y FILTROS ========== */
+.searchFilterBar {
+    background: #FFFFFF;
+    padding: 1.25rem;
+    border: 1px solid #CBD2DA;
+    border-top: 3px solid #003DA5;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.searchSection {
+    flex: 1;
+    min-width: 280px;
+}
+
+.searchBox {
+    position: relative;
+    width: 100%;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    color: #5C6773;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    border: 1px solid #A0AABB;
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-family: 'Arial', sans-serif;
+    transition: border-color 0.2s ease;
+    background: #FAFBFC;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: #003DA5;
+    box-shadow: 0 0 0 2px rgba(0, 61, 165, 0.12);
+    background: #FFFFFF;
+}
+
+.filterSection {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filterSelect {
+    padding: 0.75rem 1rem;
+    border: 1px solid #A0AABB;
+    border-radius: 0;
+    font-size: 0.875rem;
+    background: #FAFBFC;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    font-family: 'Arial', sans-serif;
+    min-width: 180px;
+}
+
+.filterSelect:focus {
+    outline: none;
+    border-color: #003DA5;
+}
+
+.viewToggle {
+    display: flex;
+    gap: 0.2rem;
+    background: #E8ECF0;
+    padding: 0.2rem;
+    border-radius: 0;
+}
+
+.viewToggle button {
+    padding: 0.4rem 0.6rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 0;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.viewToggle button.active {
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+/* ========== TABLA ========== */
+.dataTableContainer {
+    background: #FFFFFF;
+    border: 1px solid #CBD2DA;
+    overflow: hidden;
+}
+
+.tableHeader {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 2px solid #CBD2DA;
+    background: #F0F4FA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tableHeaderLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.tableTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #003DA5;
+    margin: 0;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.tableCount {
+    font-size: 0.8rem;
+    color: #5C6773;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ========== SELECTOR CANTIDAD POR PÁGINA ========== */
+.perPageSelector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #E8ECF0;
+    padding: 0.5rem 1rem;
+    border: 1px solid #CBD2DA;
+}
+
+.perPageLabel {
+    font-size: 0.8rem;
+    color: #5C6773;
+    font-weight: 600;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.perPageSelect {
+    padding: 0.35rem 0.6rem;
+    border: 1px solid #A0AABB;
+    border-radius: 0;
+    font-size: 0.875rem;
+    font-weight: 700;
+    background: #FFFFFF;
+    color: #003DA5;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+}
+
+.perPageSelect:focus {
+    outline: none;
+    border-color: #003DA5;
+}
+
+.tableHeaderRight {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btnFilter,
+.btnExport {
+    padding: 0.55rem 1rem;
+    border: 1px solid #A0AABB;
+    background: #FFFFFF;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.btnFilter:hover,
+.btnExport:hover {
+    background: #003DA5;
+    color: #FFFFFF;
+    border-color: #003DA5;
+}
+
+/* ========== LOADING ========== */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    gap: 1rem;
+}
+
+.spinner {
+    width: 44px;
+    height: 44px;
+    border: 4px solid #E8ECF0;
+    border-top-color: #003DA5;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ========== DATA TABLE ========== */
+.tableWrapper {
+    overflow-x: auto;
+}
+
+.dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;
+}
+
+.dataTable thead {
+    background: #003DA5;
+}
+
+.dataTable th {
+    padding: 0.9rem 1.25rem;
+    text-align: left;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: 'Arial', sans-serif;
+    border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+.dataTable th:last-child {
+    border-right: none;
+}
+
+.dataTable td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #E8ECF0;
+    color: #1A2232;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9rem;
+}
+
+.tableRow {
+    transition: background 0.15s ease;
+}
+
+.tableRow:hover {
+    background: #F0F4FA;
+}
+
+.tableRow:nth-child(even) {
+    background: #FAFBFC;
+}
+
+.tableRow:nth-child(even):hover {
+    background: #F0F4FA;
+}
+
+.idCell {
+    font-weight: 700;
+    color: #003DA5;
+    font-size: 0.85rem;
+    font-family: 'Courier New', monospace;
+}
+
+.userCell {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+}
+
+.userAvatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 0;
+    background: #003DA5;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    border: 2px solid #CBD2DA;
+    font-family: 'Arial', sans-serif;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.userName {
+    font-weight: 700;
+    color: #1A2232;
+    font-size: 0.9rem;
+}
+
+.userEmail {
+    font-size: 0.8rem;
+    color: #5C6773;
+}
+
+/* ========== BADGE DE TIPO ========== */
+.typeBadge {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Arial', sans-serif;
+}
+
+.typeAdmin {
+    background: #FFF3CD;
+    color: #7A4F00;
+    border: 1px solid #F0C040;
+}
+
+.typeEmpleado {
+    background: #D6E4FF;
+    color: #003DA5;
+    border: 1px solid #7FB3FF;
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.85rem;
+}
+
+.contactInfo span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #3A4A5C;
+}
+
+.dateCell {
+    color: #3A4A5C;
+    font-size: 0.88rem;
+    font-family: 'Courier New', monospace;
+}
+
+.activityCell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.turnosCount {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #003DA5;
+}
+
+.turnosLabel {
+    font-size: 0.75rem;
+    color: #5C6773;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.statusBadge {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Arial', sans-serif;
+}
+
+.statusBadge.activo {
+    background: #D4EDDA;
+    color: #0F5132;
+    border: 1px solid #28A745;
+}
+
+.statusBadge.inactivo {
+    background: #E9ECEF;
+    color: #495057;
+    border: 1px solid #ADB5BD;
+}
+
+.statusBadge.suspendido {
+    background: #F8D7DA;
+    color: #721C24;
+    border: 1px solid #F5C6CB;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.btnAction {
+    padding: 0.4rem 0.7rem;
+    border: 1px solid #CBD2DA;
+    background: #FFFFFF;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.btnAction:hover {
+    background: #003DA5;
+    color: #FFFFFF;
+    border-color: #003DA5;
+}
+
+/* ========== PAGINACIÓN ========== */
+.pagination {
+    padding: 1.25rem 1.5rem;
+    border-top: 2px solid #CBD2DA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    background: #F0F4FA;
+}
+
+.paginationInfo {
+    color: #5C6773;
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: 'Arial', sans-serif;
+}
+
+.paginationControls {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.paginationBtn {
+    padding: 0.55rem 1.1rem;
+    border: 1px solid #A0AABB;
+    background: #FFFFFF;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+    color: #1A2232;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.paginationBtn:hover:not(:disabled) {
+    background: #003DA5;
+    color: #FFFFFF;
+    border-color: #003DA5;
+}
+
+.paginationBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #E8ECF0;
+}
+
+.paginationNumbers {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+}
+
+.paginationNumber {
+    min-width: 36px;
+    height: 36px;
+    padding: 0.4rem;
+    border: 1px solid #A0AABB;
+    background: #FFFFFF;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.paginationNumber:hover {
+    background: #E8ECF0;
+    border-color: #003DA5;
+    color: #003DA5;
+}
+
+.paginationActive {
+    background: #003DA5 !important;
+    color: #FFFFFF !important;
+    border-color: #003DA5 !important;
+}
+
+.paginationDots {
+    padding: 0.4rem;
+    color: #5C6773;
+    font-weight: 600;
+}
+
+.paginationLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.paginationSelect {
+    padding: 0.4rem 0.75rem;
+    border: 1px solid #A0AABB;
+    border-radius: 0;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+}
+
+.paginationRight {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.pageBtn {
+    padding: 0.45rem 0.9rem;
+    border: 1px solid #A0AABB;
+    background: #FFFFFF;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    min-width: 38px;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.85rem;
+}
+
+.pageBtn:hover:not(:disabled) {
+    background: #E8ECF0;
+    border-color: #003DA5;
+}
+
+.pageBtn.active {
+    background: #003DA5;
+    color: #FFFFFF;
+    border-color: #003DA5;
+}
+
+.pageBtn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.pageDots {
+    display: flex;
+    align-items: center;
+    padding: 0 0.4rem;
+    color: #5C6773;
+}
+
+/* ========== MODAL ========== */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 20, 40, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 1rem;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modalContent {
+    background: #FFFFFF;
+    border: 2px solid #003DA5;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modalDanger {
+    border: 2px solid #C00;
+}
+
+.modalHeader {
+    padding: 1.25rem 1.75rem;
+    border-bottom: 3px solid #003DA5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #003DA5;
+}
+
+.modalDanger .modalHeader {
+    background: #C00;
+    border-bottom-color: #900;
+}
+
+.modalTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.modalClose {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #FFFFFF;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    transition: all 0.2s ease;
+}
+
+.modalClose:hover {
+    background: rgba(255,255,255,0.35);
+}
+
+.modalBody {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.modalFooter {
+    padding: 1.25rem 1.75rem;
+    border-top: 2px solid #E8ECF0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    background: #F0F4FA;
+}
+
+/* ========== USER DETAIL CARD ========== */
+.userDetailCard {
+    background: #EDF2FF;
+    border: 2px solid #7FB3FF;
+    padding: 1.5rem;
+}
+
+.userDetailHeader {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.userDetailAvatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 0;
+    background: #003DA5;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.6rem;
+    border: 3px solid #0c6b00;
+    font-family: 'Georgia', serif;
+}
+
+.userDetailName {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1A2232;
+    margin: 0 0 0.4rem 0;
+    font-family: 'Georgia', serif;
+}
+
+.userDetailInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0.875rem;
+    background: #FFFFFF;
+    border: 1px solid #CBD2DA;
+}
+
+.infoLabel {
+    font-weight: 700;
+    color: #5C6773;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-family: 'Arial', sans-serif;
+}
+
+.infoValue {
+    font-weight: 600;
+    color: #1A2232;
+    font-size: 0.9rem;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ========== SECTION CARD ========== */
+.sectionCard {
+    background: #F8FAFE;
+    border: 1px solid #CBD2DA;
+    border-left: 4px solid #003DA5;
+    padding: 1.25rem;
+}
+
+.sectionTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #003DA5;
+    margin: 0 0 0.875rem 0;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* ========== TURNOS ========== */
+.turnosResumen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.875rem;
+    margin-bottom: 1.25rem;
+}
+
+.turnoStat {
+    background: #FFFFFF;
+    padding: 0.875rem;
+    text-align: center;
+    border: 1px solid #CBD2DA;
+    border-top: 3px solid #003DA5;
+}
+
+.turnoStatLabel {
+    display: block;
+    font-size: 0.75rem;
+    color: #5C6773;
+    margin-bottom: 0.4rem;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.turnoStatValue {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #003DA5;
+    font-family: 'Georgia', serif;
+}
+
+.turnosLista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.turnoItem {
+    background: #FFFFFF;
+    padding: 0.875rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #CBD2DA;
+    font-size: 0.875rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.statusCompleted {
+    background: #D4EDDA;
+    color: #0F5132;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid #28A745;
+}
+
+.statusPending {
+    background: #FFF3CD;
+    color: #7A4F00;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid #F0C040;
+}
+
+/* ========== ACTIVITY ========== */
+.activityList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.activityItem {
+    background: #FFFFFF;
+    padding: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    border: 1px solid #CBD2DA;
+    font-size: 0.875rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.activityIcon {
+    font-size: 1.3rem;
+}
+
+/* ========== WARNING BOX ========== */
+.warningBox {
+    background: #FFF8E1;
+    border: 2px solid #F0C040;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.warningIcon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.warningBox p {
+    margin: 0 0 0.5rem 0;
+    color: #3A4A5C;
+    font-family: 'Arial', sans-serif;
+}
+
+.warningBox strong {
+    font-size: 1.1rem;
+    color: #1A2232;
+    font-family: 'Georgia', serif;
+}
+
+/* ========== ACTIONS GRID ========== */
+.actionsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+}
+
+.btnBan,
+.btnDelete {
+    background: #FFFFFF;
+    border: 2px solid #CBD2DA;
+    border-radius: 0;
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: center;
+}
+
+.btnBan:hover {
+    border-color: #F0C040;
+    background: #FFF8E1;
+}
+
+.btnDelete:hover {
+    border-color: #CC0000;
+    background: #FFF0F0;
+}
+
+.btnBan .actionIcon,
+.btnDelete .actionIcon {
+    font-size: 2.5rem;
+}
+
+.actionIcon {
+    font-size: 2.5rem;
+}
+
+.actionContent h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.35rem 0;
+    color: #1A2232;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.actionContent p {
+    font-size: 0.8rem;
+    color: #5C6773;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.dangerNote {
+    background: #FFF0F0;
+    border: 1px solid #FFAAAA;
+    border-left: 4px solid #CC0000;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #3A4A5C;
+    font-family: 'Arial', sans-serif;
+}
+
+.dangerNote strong {
+    color: #CC0000;
+}
+
+/* ========== MODAL BUTTONS ========== */
+.btnModalSecondary {
+    padding: 0.75rem 1.75rem;
+    border: 2px solid #A0AABB;
+    background: #FFFFFF;
+    border-radius: 0;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #1A2232;
+}
+
+.btnModalSecondary:hover {
+    background: #E8ECF0;
+    border-color: #5C6773;
+}
+
+.btnActionDanger:hover {
+    background: #CC0000 !important;
+    border-color: #990000 !important;
+    color: #FFFFFF !important;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .mainContent { padding: 1rem; }
+    .headerContent { flex-direction: column; align-items: stretch; }
+    .headerActions { flex-direction: column; }
+    .btnSecondary, .btnPrimary { width: 100%; justify-content: center; }
+    .searchFilterBar { flex-direction: column; align-items: stretch; }
+    .searchSection { min-width: 100%; }
+    .filterSection { flex-direction: column; width: 100%; }
+    .filterSelect { width: 100%; }
+    .statsGrid { grid-template-columns: 1fr; }
+    .dataTable { font-size: 0.82rem; min-width: 900px; }
+    .tableHeader { flex-direction: column; align-items: stretch; }
+    .perPageSelector { justify-content: center; }
+    .pagination { flex-direction: column; align-items: stretch; gap: 1rem; }
+    .paginationInfo { text-align: center; }
+    .paginationControls { flex-wrap: wrap; justify-content: center; }
+    .paginationNumbers { flex-wrap: wrap; justify-content: center; }
+    .modalContent { max-width: 95%; margin: 1rem; }
+    .modalBody { padding: 1.25rem; }
+    .userDetailHeader { flex-direction: column; text-align: center; }
+    .turnosResumen { grid-template-columns: 1fr; }
+    .actionsGrid { grid-template-columns: 1fr; }
+    .infoRow { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+}
+
+@media (max-width: 480px) {
+    .pageTitle { font-size: 1.4rem; }
+    .statValue { font-size: 1.6rem; }
+    .userAvatar { width: 32px; height: 32px; font-size: 0.75rem; }
+    .paginationBtn { padding: 0.5rem 0.875rem; font-size: 0.75rem; }
+    .paginationNumber { min-width: 32px; height: 32px; font-size: 0.8rem; }
+    .userDetailAvatar { width: 55px; height: 55px; font-size: 1.3rem; }
+    .modalHeader, .modalFooter { padding: 1rem 1.25rem; }
+}

@@ -1,0 +1,264 @@
+/* Register.module.css - Portal Gubernamental */
+
+.authContainer {
+    background: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    max-width: 920px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--gray-200);
+}
+
+/* Panel izquierdo */
+.authBrand {
+    background: var(--primary-dark);
+    color: white;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+.authBrand::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        90deg, transparent, transparent 50px,
+        rgba(255,255,255,0.02) 50px, rgba(255,255,255,0.02) 51px
+    );
+}
+
+.authBrand::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+}
+
+.authBrand h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.25;
+    position: relative;
+    z-index: 1;
+}
+
+.authBrand p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.escudo {
+    width: 64px;
+    height: 64px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.brandFeatures {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.brandFeature {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.featureCheck {
+    width: 22px;
+    height: 22px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.featureCheck img {
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+    filter: invert(1) brightness(0);
+}
+
+/* Panel derecho */
+.authForm {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg-white);
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.formHeader {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 2px solid var(--primary);
+}
+
+.formEyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+.formTitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.7rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.formSubtitle {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.formGroup {
+    margin-bottom: 1.1rem;
+}
+
+.formLabel {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.formInput {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    background: var(--bg-white);
+    font-family: 'IBM Plex Sans', sans-serif;
+    border-left: 3px solid var(--gray-300);
+}
+
+.formInput:focus {
+    outline: none;
+    border-color: var(--accent);
+    border-left-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
+}
+
+.formInput::placeholder {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+}
+
+.formHelper {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.formCheck {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.formCheck input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--accent);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.formCheck label {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.formCheck label a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.formCheck label a:hover { text-decoration: underline; }
+
+.formFooter {
+    text-align: center;
+    margin-top: 1.25rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+.formFooter a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.formFooter a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+    .authContainer { grid-template-columns: 1fr; }
+    .authBrand { display: none; }
+    .authForm { padding: 2rem 1.5rem; }
+    .formRow { grid-template-columns: 1fr; }
+}

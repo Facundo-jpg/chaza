@@ -1,0 +1,793 @@
+/* GestionTurnos.module.css - Gestión de Expedientes / Trámites */
+
+.adminLayout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+    background: var(--bg-light);
+}
+
+.mainContent {
+    padding: 2rem;
+    overflow-y: auto;
+    max-width: 100%;
+    background: var(--bg-light);
+}
+
+/* ========== HEADER ========== */
+.contentHeader {
+    background: var(--primary-dark);
+    padding: 1.75rem 2rem;
+    border-radius: var(--border-radius-lg);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-lg);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    border-bottom: 4px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.contentHeader::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        90deg, transparent, transparent 60px,
+        rgba(255,255,255,0.018) 60px, rgba(255,255,255,0.018) 61px
+    );
+}
+
+.headerLeft { flex: 1; position: relative; z-index: 1; }
+
+.pageTitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: white;
+}
+
+.pageSubtitle {
+    font-size: 0.82rem;
+    opacity: 0.75;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.75);
+}
+
+.headerActions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* ========== BUSCADOR ========== */
+.searchBox { position: relative; }
+
+.searchIcon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.searchInput {
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    min-width: 280px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-family: 'IBM Plex Sans', sans-serif;
+    border-left: 3px solid rgba(255,255,255,0.3);
+}
+
+.searchInput::placeholder { color: rgba(255,255,255,0.5); }
+
+.searchInput:focus {
+    outline: none;
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 0 0 2px rgba(200,168,75,0.4);
+    border-left-color: var(--gold);
+}
+
+/* ========== BOTONES HEADER ========== */
+.btnPrimary {
+    background: var(--gold);
+    color: var(--primary-dark);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.btnPrimary:hover {
+    background: var(--gold-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ========== STATS GRID ========== */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.statCard {
+    background: var(--bg-white);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+}
+
+.statCard::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+}
+
+.statCard:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+.statPending::before { background: var(--status-pending); }
+.statProcess::before { background: var(--status-process); }
+.statCompleted::before { background: var(--status-completed); }
+.statRevenue::before { background: var(--status-cancelled); }
+
+.statIcon {
+    width: 48px; height: 48px;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.statPending .statIcon { background: rgba(200,130,10,0.1); }
+.statProcess .statIcon { background: rgba(21,96,168,0.1); }
+.statCompleted .statIcon { background: rgba(14,122,62,0.1); }
+.statRevenue .statIcon { background: rgba(185,28,28,0.1); }
+
+.statContent { flex: 1; }
+
+.statContent h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: var(--primary-dark);
+    line-height: 1;
+}
+
+.statContent p {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.statTrend {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* ========== FILTERS BAR ========== */
+.filtersBar {
+    background: var(--bg-white);
+    padding: 1.25rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    border: 1px solid var(--gray-200);
+    border-top: 2px solid var(--primary);
+}
+
+.filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+    min-width: 150px;
+}
+
+.filterLabel {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.filterSelect {
+    padding: 0.65rem 0.875rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+    background: var(--bg-white);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-family: 'IBM Plex Sans', sans-serif;
+    border-left: 3px solid var(--gray-300);
+}
+
+.filterSelect:focus {
+    border-color: var(--accent);
+    border-left-color: var(--accent);
+    outline: none;
+}
+
+.btnExport {
+    padding: 0.65rem 1.25rem;
+    border: 2px solid var(--primary);
+    background: var(--bg-white);
+    color: var(--primary);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.btnExport:hover { background: var(--primary); color: white; }
+
+/* ========== DATA TABLE CONTAINER ========== */
+.dataTableContainer {
+    background: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+}
+
+.tableHeader {
+    padding: 1.25rem 1.75rem;
+    border-bottom: 2px solid var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: var(--gray-50);
+}
+
+.tableTitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.tableActions { display: flex; gap: 0.5rem; }
+
+.btnView {
+    padding: 0.45rem 0.875rem;
+    border: 1px solid var(--gray-300);
+    background: var(--bg-white);
+    color: var(--text-secondary);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.btnView:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ========== VISTA DESKTOP ========== */
+.desktopView { display: block; }
+.mobileView { display: none; }
+
+.tableWrapper { overflow-x: auto; width: 100%; }
+
+.dataTable { width: 100%; border-collapse: collapse; }
+
+.dataTable thead { background: var(--primary-dark); }
+
+.dataTable th {
+    padding: 0.875rem 1rem;
+    text-align: left;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.dataTable td {
+    padding: 0.875rem 1rem;
+    border-top: 1px solid var(--gray-100);
+    color: var(--text-primary);
+    vertical-align: middle;
+    font-size: 0.875rem;
+}
+
+.tableRow { transition: background 0.15s ease; }
+.tableRow:hover { background: rgba(0,48,135,0.03); }
+
+.idCell {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+.clienteCell { min-width: 160px; }
+
+.clienteInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+}
+
+.avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.horaCell {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    color: var(--primary);
+    white-space: nowrap;
+    font-size: 0.875rem;
+}
+
+.statusBadge {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: 2px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.statusBadge.pendiente {
+    background: rgba(200,130,10,0.1);
+    color: var(--status-pending);
+    border-left: 3px solid var(--status-pending);
+}
+
+.statusBadge.en_proceso {
+    background: rgba(21,96,168,0.1);
+    color: var(--status-process);
+    border-left: 3px solid var(--status-process);
+}
+
+.statusBadge.finalizado {
+    background: rgba(14,122,62,0.1);
+    color: var(--status-completed);
+    border-left: 3px solid var(--status-completed);
+}
+
+.statusBadge.cancelado {
+    background: rgba(185,28,28,0.1);
+    color: var(--status-cancelled);
+    border-left: 3px solid var(--status-cancelled);
+}
+
+/* ========== ACTION BUTTONS ========== */
+.actionButtons { display: flex; gap: 0.35rem; }
+
+.btnAction {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+    background: var(--bg-white);
+}
+
+.btnAction.btnView { color: var(--accent); border-color: var(--accent); }
+.btnAction.btnView:hover { background: var(--accent); color: white; }
+.btnAction.btnEdit { color: var(--status-process); border-color: var(--status-process); }
+.btnAction.btnEdit:hover { background: var(--status-process); color: white; }
+.btnAction.btnDelete { color: var(--status-cancelled); border-color: var(--status-cancelled); }
+.btnAction.btnDelete:hover { background: var(--status-cancelled); color: white; }
+
+/* ========== MOBILE CARDS ========== */
+.turnoCard {
+    background: var(--bg-white);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--border-radius-md);
+    padding: 1.25rem;
+    margin-bottom: 0.875rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+}
+
+.turnoCard:hover { box-shadow: var(--shadow-md); }
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding-bottom: 0.875rem;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.cardHeaderLeft { display: flex; gap: 0.75rem; align-items: center; }
+.cardInfo { display: flex; flex-direction: column; gap: 0.2rem; }
+
+.cardCliente {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin: 0;
+}
+
+.cardId {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.cardBody { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
+
+.cardDetail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cardLabel {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.cardValue {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: right;
+}
+
+.cardFooter {
+    display: flex;
+    gap: 0.5rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid var(--gray-100);
+}
+
+.cardFooter .btnAction {
+    flex: 1;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* ========== PAGINATION ========== */
+.pagination {
+    padding: 1.25rem 1.75rem;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: var(--gray-50);
+}
+
+.paginationInfo {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.paginationButtons { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+
+.pageBtn {
+    padding: 0.45rem 0.8rem;
+    border: 1px solid var(--gray-300);
+    background: var(--bg-white);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    min-width: 38px;
+    font-size: 0.85rem;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.pageBtn:hover:not(:disabled) { background: var(--primary); color: white; border-color: var(--primary); }
+.pageBtn.active { background: var(--primary); color: white; border-color: var(--primary); }
+.pageBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ========== MODAL ========== */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,18,60,0.65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modalContent {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    width: 90%;
+    max-width: 580px;
+    box-shadow: var(--shadow-xl);
+    animation: slideUp 0.25s ease-out;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-top: 4px solid var(--gold);
+}
+
+@keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 2px solid var(--primary);
+    background: var(--gray-50);
+}
+
+.modalTitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin: 0;
+}
+
+.modalClose {
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    width: 36px; height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    transition: all 0.2s;
+}
+
+.modalClose:hover { background: var(--gray-100); color: var(--text-primary); }
+
+.modalBody { padding: 1.5rem; }
+
+.turnoInfo {
+    background: var(--gray-50);
+    padding: 1.25rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--gray-200);
+    border-left: 3px solid var(--accent);
+}
+
+.turnoInfo p { margin: 6px 0; color: var(--text-secondary); font-size: 0.9rem; }
+.turnoInfo strong { color: var(--text-primary); font-weight: 600; margin-right: 6px; }
+
+.estadosGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+}
+
+.estadoBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.estadoBtn:not(:disabled):hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.estadoBtn:disabled { opacity: 0.45; cursor: not-allowed; }
+.estadoIcon { font-size: 2rem; margin-bottom: 8px; }
+.estadoTexto { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.estadoPendiente { border-color: var(--status-pending); color: var(--status-pending); }
+.estadoPendiente:not(:disabled):hover { background: rgba(200,130,10,0.08); }
+.estadoProceso { border-color: var(--status-process); color: var(--status-process); }
+.estadoProceso:not(:disabled):hover { background: rgba(21,96,168,0.08); }
+.estadoFinalizado { border-color: var(--status-completed); color: var(--status-completed); }
+.estadoFinalizado:not(:disabled):hover { background: rgba(14,122,62,0.08); }
+.estadoCancelado { border-color: var(--status-cancelled); color: var(--status-cancelled); }
+.estadoCancelado:not(:disabled):hover { background: rgba(185,28,28,0.08); }
+
+.modalFooter {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: flex-end;
+    background: var(--gray-50);
+}
+
+.btnCancelar {
+    padding: 0.75rem 1.5rem;
+    background: var(--gray-100);
+    color: var(--text-secondary);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.btnCancelar:hover { background: var(--gray-200); }
+
+.warningBox {
+    background: rgba(185,28,28,0.06);
+    border: 1px solid rgba(185,28,28,0.2);
+    border-left: 3px solid var(--status-cancelled);
+    border-radius: var(--border-radius-md);
+    padding: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.warningIcon { font-size: 2.5rem; margin-bottom: 8px; }
+.warningText { font-size: 1rem; font-weight: 600; color: var(--status-cancelled); margin: 0; }
+
+.alertMessage {
+    background: rgba(185,28,28,0.06);
+    border-left: 3px solid var(--status-cancelled);
+    padding: 0.875rem 1rem;
+    border-radius: var(--border-radius);
+    color: var(--status-cancelled);
+    font-size: 0.85rem;
+}
+
+.alertMessage strong { font-weight: 700; display: block; margin-bottom: 4px; }
+
+.btnEliminar {
+    padding: 0.75rem 1.5rem;
+    background: var(--status-cancelled);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+    margin-left: 0.75rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.btnEliminar:hover { background: #991b1b; transform: translateY(-1px); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .adminLayout { grid-template-columns: 1fr; }
+    .contentHeader { flex-direction: column; align-items: flex-start; }
+    .headerActions { width: 100%; flex-direction: column; }
+    .searchInput { width: 100%; min-width: unset; }
+    .btnPrimary { width: 100%; justify-content: center; }
+    .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .mainContent { padding: 1rem; }
+    .contentHeader { padding: 1.25rem; }
+    .pageTitle { font-size: 1.5rem; }
+    .statsGrid { grid-template-columns: 1fr; }
+    .filtersBar { flex-direction: column; align-items: stretch; }
+    .filterGroup { min-width: 100%; }
+    .btnExport { width: 100%; }
+    .desktopView { display: none; }
+    .mobileView { display: block; padding: 1rem; }
+    .pagination { flex-direction: column; align-items: stretch; padding: 1rem; }
+    .paginationButtons { justify-content: center; }
+    .estadosGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .statCard { padding: 1rem; }
+    .statContent h3 { font-size: 1.5rem; }
+    .statIcon { width: 42px; height: 42px; font-size: 1.3rem; }
+    .pageBtn { padding: 0.4rem 0.6rem; font-size: 0.8rem; min-width: 32px; }
+    .cardFooter { flex-direction: column; }
+    .cardFooter .btnAction { width: 100%; }
+}

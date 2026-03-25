@@ -1,0 +1,422 @@
+/* NuevoTurno.module.css — Estética Gubernamental Argentina */
+
+.mainContent {
+    padding: 2rem;
+    overflow-y: auto;
+    background-color: #F0F2F5;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ========== HEADER ========== */
+.contentHeader {
+    background: #0c6b00;
+    padding: 1.75rem 2rem;
+    margin-bottom: 2rem;
+    color: #FFFFFF;
+    border-left: 6px solid #FACC15;
+    box-shadow: 0 4px 16px rgba(0, 31, 107, 0.18);
+}
+
+.headerLeft {
+    flex: 1;
+}
+
+.pageTitle {
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem 0;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pageSubtitle {
+    font-size: 0.82rem;
+    opacity: 0.8;
+    margin: 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ========== FORM CONTAINER ========== */
+.formContainer {
+    display: grid;
+    gap: 2rem;
+}
+
+/* ========== SERVICIOS SECTION ========== */
+.serviciosSection {
+    background: #FFFFFF;
+    border: 1px solid #CBD2DA;
+    border-top: 4px solid #003DA5;
+    padding: 1.75rem;
+    box-shadow: 0 2px 8px rgba(0, 31, 107, 0.06);
+}
+
+.sectionTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #003DA5;
+    margin: 0 0 0.35rem 0;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #E8ECF0;
+}
+
+.serviciosHint {
+    font-size: 0.82rem;
+    color: #5C6773;
+    margin-bottom: 1.5rem;
+    display: block;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.02em;
+}
+
+.serviciosGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.1rem;
+}
+
+.servicioCard {
+    background: #F8FAFE;
+    border: 2px solid #CBD2DA;
+    padding: 1.35rem;
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.servicioCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #CBD2DA;
+    transition: background 0.2s ease;
+}
+
+.servicioCard:hover {
+    border-color: #003DA5;
+    background: #EDF2FF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 61, 165, 0.12);
+}
+
+.servicioCard:hover::before {
+    background: #003DA5;
+}
+
+.servicioCardSelected {
+    background: #EDF2FF !important;
+    border: 2px solid #003DA5 !important;
+    box-shadow: 0 4px 16px rgba(0, 61, 165, 0.15) !important;
+}
+
+.servicioCardSelected::before {
+    background: #FACC15 !important;
+    height: 4px !important;
+}
+
+.checkMark {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 28px;
+    height: 28px;
+    background: #003DA5;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    animation: popIn 0.25s ease;
+    border: 2px solid #FACC15;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.servicioIcon {
+    width: 60px;
+    height: 60px;
+    background: #0c6b00;
+    border: 2px solid #003DA5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    margin: 0 auto 0.875rem;
+}
+
+.servicioCardSelected .servicioIcon {
+    border-color: #FACC15;
+}
+
+.servicioTitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1A2232;
+    margin: 0 0 0.4rem 0;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.servicioDescription {
+    font-size: 0.8rem;
+    color: #5C6773;
+    margin: 0;
+    line-height: 1.5;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ========== FORM SECTION ========== */
+.formSection {
+    background: #FFFFFF;
+    border: 1px solid #CBD2DA;
+    border-top: 4px solid #003DA5;
+    padding: 1.75rem;
+    box-shadow: 0 2px 8px rgba(0, 31, 107, 0.06);
+    scroll-margin-top: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.formLabel {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #3A4A5C;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Arial', sans-serif;
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+    padding: 0.75rem 0.9rem;
+    border: 1px solid #A0AABB;
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-family: 'Arial', sans-serif;
+    transition: border-color 0.2s ease;
+    background: #FAFBFC;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+    border-color: #003DA5;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 61, 165, 0.1);
+    background: #FFFFFF;
+}
+
+.formTextarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.formHint {
+    font-size: 0.78rem;
+    color: #5C6773;
+    font-style: italic;
+    font-family: 'Arial', sans-serif;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+/* ========== INFO BOX ========== */
+.infoBox {
+    background: #EDF2FF;
+    border: 1px solid #7FB3FF;
+    border-left: 4px solid #003DA5;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.infoIcon {
+    width: 46px;
+    height: 46px;
+    background: #003DA5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.infoContent {
+    flex: 1;
+}
+
+.infoTitle {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #003DA5;
+    margin: 0 0 0.6rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-family: 'Georgia', serif;
+}
+
+.infoList {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.infoList li {
+    font-size: 0.82rem;
+    color: #1A2232;
+    line-height: 1.5;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ========== MESSAGES ========== */
+.message {
+    padding: 0.875rem 1.1rem;
+    border-radius: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.02em;
+}
+
+.message.success {
+    background: #D4EDDA;
+    color: #0F5132;
+    border: 1px solid #28A745;
+    border-left: 4px solid #1A7A2E;
+}
+
+.message.error {
+    background: #F8D7DA;
+    color: #721C24;
+    border: 1px solid #F5C6CB;
+    border-left: 4px solid #CC0000;
+}
+
+/* ========== FORM ACTIONS ========== */
+.formActions {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid #E8ECF0;
+    margin-top: 0.25rem;
+}
+
+.btnPrimary,
+.btnSecondary {
+    flex: 1;
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btnPrimary {
+    background: #003DA5;
+    color: #FFFFFF;
+    border: 2px solid #003DA5;
+}
+
+.btnPrimary:hover:not(:disabled) {
+    background: #002A7A;
+    border-color: #002A7A;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 61, 165, 0.25);
+}
+
+.btnPrimary:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    background: #A0AABB;
+    border-color: #A0AABB;
+}
+
+.btnSecondary {
+    background: #FFFFFF;
+    color: #3A4A5C;
+    border: 2px solid #A0AABB;
+}
+
+.btnSecondary:hover {
+    background: #E8ECF0;
+    border-color: #5C6773;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .serviciosGrid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+    .mainContent { padding: 1rem; }
+    .contentHeader { padding: 1.25rem; }
+    .pageTitle { font-size: 1.5rem; }
+    .serviciosSection, .formSection { padding: 1.25rem; }
+    .serviciosGrid { grid-template-columns: 1fr; }
+    .formRow { grid-template-columns: 1fr; }
+    .formActions { flex-direction: column-reverse; }
+    .btnPrimary, .btnSecondary { width: 100%; }
+    .infoBox { flex-direction: column; }
+    .infoIcon { margin: 0 auto; }
+    .infoList { padding-left: 0; list-style: none; }
+}
+
+@media (max-width: 480px) {
+    .servicioCard { padding: 1.1rem; }
+    .servicioIcon { width: 50px; height: 50px; font-size: 1.5rem; }
+}

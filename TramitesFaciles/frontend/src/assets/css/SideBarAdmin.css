@@ -1,0 +1,278 @@
+/* SideBarAdmin.css — Estética Gubernamental Argentina */
+
+/* ========== SIDEBAR PRINCIPAL ========== */
+.sidebar {
+    background: #0c6b00;
+    color: #FFFFFF;
+    padding: 0;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.25);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    transition: left 0.3s ease;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    border-right: 4px solid #FACC15;
+}
+
+/* ========== HEADER DEL SIDEBAR ========== */
+.sidebarHeader {
+    padding: 1.5rem;
+    border-bottom: 2px solid rgba(250, 204, 21, 0.4);
+    background: #001058;
+}
+
+.sidebarLogo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+}
+
+.sidebarRole {
+    font-size: 0.72rem;
+    color: #FACC15;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* ========== DIVISOR DECORATIVO (bandera argentina) ========== */
+.sidebarHeader::after {
+    content: '';
+    display: block;
+    height: 3px;
+    margin-top: 1rem;
+    background: linear-gradient(90deg,
+        #7EC8E3 33.33%,
+        #FFFFFF 33.33%,
+        #FFFFFF 66.66%,
+        #7EC8E3 66.66%
+    );
+    opacity: 0.5;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+}
+
+/* ========== NAVEGACIÓN ========== */
+.sidebarNav {
+    flex: 1;
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+}
+
+.navItem {
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.navItem:hover {
+    background: rgba(250, 204, 21, 0.1);
+    color: #FACC15;
+    border-left-color: #FACC15;
+}
+
+.navItem.active {
+    background: rgba(250, 204, 21, 0.15);
+    color: #FACC15;
+    border-left-color: #FACC15;
+    font-weight: 700;
+}
+
+.navIcon {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* ========== FOOTER DEL SIDEBAR ========== */
+.sidebarFooter {
+    padding: 1.25rem 1.5rem;
+    border-top: 2px solid rgba(250, 204, 21, 0.3);
+    background: #001058;
+}
+
+.logoutBtn {
+    width: 100%;
+    padding: 0.75rem;
+    background: transparent;
+    color: #FACC15;
+    border: 2px solid #FACC15;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.logoutBtn:hover {
+    background: #FACC15;
+    color: #0c6b00;
+}
+
+/* ========== MOBILE HEADER ========== */
+.mobileHeader {
+    display: none;
+    padding: 0.875rem 1rem;
+    background: #0c6b00;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+    border-bottom: 3px solid #FACC15;
+}
+
+.menuBtn {
+    background: rgba(250, 204, 21, 0.15);
+    color: #FACC15;
+    border: 1px solid #FACC15;
+    padding: 0.6rem;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.menuBtn:hover {
+    background: #FACC15;
+    color: #0c6b00;
+}
+
+.mobileLogo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ========== OVERLAY ========== */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 10, 30, 0.6);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .mobileHeader {
+        display: flex;
+    }
+
+    .adminContent {
+        padding-top: 5rem;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        height: 100vh;
+        width: 280px;
+        transition: left 0.3s ease;
+        z-index: 999;
+        overflow-y: auto;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .sidebarFooter {
+        position: relative;
+        margin-top: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 260px;
+        left: -260px;
+    }
+
+    .sidebarLogo {
+        font-size: 1.25rem;
+    }
+
+    .navItem {
+        padding: 0.8rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    .adminContent {
+        padding-top: 4.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 240px;
+        left: -240px;
+    }
+
+    .mobileHeader {
+        padding: 0.7rem;
+    }
+
+    .mobileLogo {
+        font-size: 1.05rem;
+    }
+
+    .menuBtn {
+        padding: 0.5rem;
+        font-size: 1.15rem;
+    }
+
+    .adminContent {
+        padding-top: 4rem;
+    }
+}

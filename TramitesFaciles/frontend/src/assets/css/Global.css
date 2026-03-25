@@ -1,0 +1,492 @@
+/* Global.css - Sistema de Diseño Gubernamental */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ========== RESET GLOBAL ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'IBM Plex Sans', 'Helvetica Neue', sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+/* ========== VARIABLES CSS ========== */
+:root {
+    /* Nueva paleta moderna (verde + azul suave) */
+    --primary: #0f766e;        /* verde principal */
+    --primary-dark: #0b4f4a;
+    --primary-light: #14b8a6;
+
+    --accent: #2563eb;         /* azul moderno */
+    --accent-dark: #1e40af;
+    --accent-light: #3b82f6;
+
+    --gold: #f59e0b;           /* dorado más vivo */
+    --gold-dark: #b45309;
+    --gold-light: #fbbf24;
+
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2933;
+    --gray-900: #111827;
+
+    --bg-white: #ffffff;
+    --bg-light: #f0fdfc;       /* leve verde claro */
+    --bg-card: #ffffff;
+
+    --text-primary: #111827;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
+
+    --status-pending: #f59e0b;
+    --status-process: #2563eb;
+    --status-completed: #10b981;
+    --status-cancelled: #ef4444;
+
+    /* Bordes */
+    --border-radius: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+}
+/* ========== FRANJA SUPERIOR INSTITUCIONAL ========== */
+body::before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-dark) 0%, var(--accent) 50%, var(--gold) 100%);
+    z-index: 10000;
+}
+
+/* ========== CONTENEDORES ========== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ========== BOTONES GLOBALES ========== */
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+    border: 2px solid var(--primary);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-transform: uppercase;
+}
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary);
+    padding: 0.75rem 1.75rem;
+    border: 2px solid var(--primary);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-transform: uppercase;
+}
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Botones de acción */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.btn-action {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background: var(--bg-white);
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.btn-view {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+.btn-view:hover {
+    background: var(--accent);
+    color: white;
+}
+.btn-edit {
+    color: var(--status-process);
+    border-color: var(--status-process);
+}
+.btn-edit:hover {
+    background: var(--status-process);
+    color: white;
+}
+.btn-delete,
+.btn-suspend {
+    color: var(--status-cancelled);
+    border-color: var(--status-cancelled);
+}
+.btn-delete:hover,
+.btn-suspend:hover {
+    background: var(--status-cancelled);
+    color: white;
+}
+
+/* ========== INPUTS GLOBALES ========== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    background: var(--bg-white);
+    font-family: 'IBM Plex Sans', sans-serif;
+    border-left: 3px solid var(--gray-300);
+}
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--accent);
+    border-left-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+}
+
+/* ========== BADGES DE ESTADO ========== */
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.875rem;
+    border-radius: 2px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    font-family: 'IBM Plex Mono', monospace;
+}
+.status-badge.pending,
+.status-badge.pendiente {
+    background: rgba(200, 130, 10, 0.1);
+    color: var(--status-pending);
+    border-left: 3px solid var(--status-pending);
+}
+.status-badge.process,
+.status-badge.en-proceso {
+    background: rgba(21, 96, 168, 0.1);
+    color: var(--status-process);
+    border-left: 3px solid var(--status-process);
+}
+.status-badge.completed,
+.status-badge.finalizado {
+    background: rgba(14, 122, 62, 0.1);
+    color: var(--status-completed);
+    border-left: 3px solid var(--status-completed);
+}
+.status-badge.cancelled,
+.status-badge.cancelado {
+    background: rgba(185, 28, 28, 0.1);
+    color: var(--status-cancelled);
+    border-left: 3px solid var(--status-cancelled);
+}
+.status-badge.activo {
+    background: rgba(14, 122, 62, 0.1);
+    color: var(--status-completed);
+    border-left: 3px solid var(--status-completed);
+}
+.status-badge.inactivo {
+    background: rgba(107, 122, 154, 0.1);
+    color: var(--text-muted);
+    border-left: 3px solid var(--text-muted);
+}
+.status-badge.suspendido {
+    background: rgba(185, 28, 28, 0.1);
+    color: var(--status-cancelled);
+    border-left: 3px solid var(--status-cancelled);
+}
+
+/* ========== TABLAS GLOBALES ========== */
+.data-table-container {
+    background: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+}
+.table-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 2px solid var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--gray-50);
+}
+.table-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin: 0;
+    font-family: 'Source Serif 4', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.table-wrapper {
+    overflow-x: auto;
+}
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+.data-table thead {
+    background: var(--primary-dark);
+}
+.data-table th {
+    padding: 0.875rem 1.25rem;
+    text-align: left;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'IBM Plex Mono', monospace;
+    white-space: nowrap;
+}
+.data-table td {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--gray-100);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+.data-table tbody tr {
+    transition: background 0.15s ease;
+}
+.data-table tbody tr:hover {
+    background: rgba(0, 48, 135, 0.03);
+}
+
+/* ========== PAGINACIÓN ========== */
+.pagination {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: var(--gray-50);
+}
+.pagination-info {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: 'IBM Plex Mono', monospace;
+}
+.pagination-buttons {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+.page-btn {
+    padding: 0.4rem 0.875rem;
+    border: 1px solid var(--gray-300);
+    background: var(--bg-white);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    color: var(--text-primary);
+    font-family: 'IBM Plex Mono', monospace;
+}
+.page-btn:hover:not(:disabled) {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+.page-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+.page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ========== CARDS ========== */
+.card {
+    background: var(--bg-white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all 0.2s ease;
+    border: 1px solid var(--gray-200);
+    border-top: 3px solid var(--accent);
+}
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ========== FOOTER GLOBAL ========== */
+footer {
+    background-color: var(--primary-dark);
+    color: white;
+    padding: 3rem 2rem 1.5rem;
+    border-top: 4px solid var(--gold);
+}
+.footer-content {
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+.footer-section h3 {
+    margin-bottom: 1.25rem;
+    color: var(--gold-light);
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.footer-section p,
+.footer-section a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+}
+.footer-section a:hover {
+    color: var(--gold-light);
+}
+.footer-item {
+    display: flex;
+    align-items: center;
+    width: 5px;
+    height: 5px;
+    gap: 8px;
+    margin: 6px 0;
+    font-size: 0.9rem;
+}
+.footer-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ========== ADMIN LAYOUT ========== */
+.adminLayout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+}
+.adminContent {
+    padding: 2rem;
+    width: 100%;
+    overflow-x: auto;
+    background: var(--bg-light);
+}
+
+/* ========== USER LAYOUT ========== */
+.userLayout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+}
+.userContent {
+    padding: 2rem;
+    width: 100%;
+    overflow-x: auto;
+    background: var(--bg-light);
+}
+
+/* ========== RESPONSIVE GLOBAL ========== */
+@media (max-width: 1024px) {
+    .adminLayout,
+    .userLayout {
+        grid-template-columns: 1fr;
+    }
+    .adminContent,
+    .userContent {
+        padding: 2rem;
+        padding-top: 5rem;
+    }
+}
+@media (max-width: 768px) {
+    .container { padding: 0 1rem; }
+    .data-table { font-size: 0.85rem; min-width: 100%; }
+    .data-table th, .data-table td { padding: 0.75rem; }
+    .adminContent, .userContent { padding: 1rem; padding-top: 4.5rem; }
+}
+@media (max-width: 480px) {
+    .action-buttons { flex-direction: column; width: 100%; }
+    .btn-action { width: 100%; }
+    .adminContent, .userContent { padding: 0.75rem; padding-top: 4rem; }
+}
